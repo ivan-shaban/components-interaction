@@ -1,0 +1,12 @@
+.base {
+    margin: 10px;
+    color: white;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: chartreuse;
+}

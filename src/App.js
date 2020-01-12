@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { ButtonComponent } from "./components/ButtonComponent/ButtonComponent";
+import { ColoredComponent } from "./components/ColoredComponent/ColoredComponent";
+import { GREEN, RED } from "./constants/colors";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = {
+        color: RED,
+    };
+    
+    handleClick = () => {
+        this.setState({
+            color: this.state.color === RED ? GREEN : RED
+        });
+    };
+    
+    render() {
+        return (
+            <div className="App">
+                <ColoredComponent color={this.state.color}/>
+                <ButtonComponent onClick={this.handleClick}/>
+            </div>
+        );
+    }
 }
 
 export default App;
